@@ -2,14 +2,12 @@ const {loginDb} = require('../dbs');
 const {error,success} = require('../types');
 
 const service = async (body)=>{
-    console.log('aaa',body,!body.userName,!body.password);
     if(!body.userName || !body.password){
         return error.loginError.name_password_notexist;
     }
 
     try{
         let result = await loginDb(body);
-        console.log('结果......',result);
         if(result){
             return success.loginSuccess;
         }else{

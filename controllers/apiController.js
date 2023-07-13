@@ -1,3 +1,3 @@
-const controller = (req,res)=>{res.status(200).send('HELLO WORLD 111!')};
+const controller = (req,res)=>{res.status(200).send('API is running')};
 
 module.exports = controller;
