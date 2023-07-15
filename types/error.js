@@ -13,8 +13,14 @@ const error = {
             message:'用户名或者密码不存在'
         },
         name_password_invalid:{
-            code:10002,
-            message:'用户名或者密码不存在'
+            code:10003,
+            message:'用户名或者密码无效'
+        }
+    },
+    registError:{
+        name_already_exist:{
+            code:10010,
+            message:'注册失败，用户已存在'
         }
     },
     serviceError:{

@@ -14,7 +14,7 @@ const service = async (body)=>{
             return error.loginError.name_password_invalid;
         }
     }catch(e){
-        return error.loginError.name_password_invalid;
+        return error.serviceError.internal_error;
     }
 }
 

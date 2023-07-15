@@ -7,10 +7,11 @@ const cors = require('cors');
 const serve = require('express-static');
 const path = require('path');
 const favicon = require('serve-favicon');
+const morgan = require('morgan');
 
 //require self
 const {errorHandle} = require('./middleware');
-const {rootRouter,apiRouter,loginRouter} = require('./routers');
+const {rootRouter,apiRouter,loginRouter,registRouter} = require('./routers');
 const db = require('./dbs');
 
 //variable
@@ -26,6 +27,8 @@ mongoose.connect(db.address).then(()=>{
 });
 
 //middlewire
+app.use(morgan('dev'));
+
 app.use(bodyParser.json());
 
 app.use(cors());
@@ -35,6 +38,7 @@ app.use('/static',serve(__dirname + '/static'));
 app.use('/',rootRouter);
 app.use('/api',apiRouter);
 app.use('/login',loginRouter);
+app.use('/regist',registRouter);
 
 app.use(errorHandle);
 
